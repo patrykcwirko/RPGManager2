@@ -1,0 +1,263 @@
+﻿<Window x:Class="SessionManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SessionManager"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" FontSize="18" FontFamily="Kristen ITC" Height="600" Width="1024" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--main content - NPC-->
+        <ScrollViewer x:Name="NpcView" Grid.Column="1" Grid.Row="1" Background="#FFACACAC" Visibility="Visible">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Vertical">
+                    <Image x:Name="NpcImage" Width="150" Height="150" HorizontalAlignment="Left" Margin="50,10" Source=".\Image\unnamed.png"/>
+                    <Button x:Name="ImageChose" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" Width="180" Click="ImageChose_Click" >
+                        <TextBlock HorizontalAlignment="Center" Text="CHOSE IMAGE" FontFamily="Cooper Black" FontSize="18"/>
+                    </Button>
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Orientation="Vertical">
+                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Margin="0,20">
+                        <TextBlock Text="Name:" />
+                        <TextBox x:Name="NpcName" Width="200" Margin="10,0" />
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="System:" />
+                        <ComboBox x:Name="SystemPick" Width="150" SelectionChanged="SystemPick_SelectionChanged" Margin="10,0"/>
+                    </StackPanel>
+                    <TextBlock x:Name="TestSystem"/>
+                </StackPanel>
+                <!--System - Fate-->
+                <StackPanel x:Name="SystemFate" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Orientation="Horizontal" Visibility="Collapsed">
+                    <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Orientation="Vertical" >
+                        <StackPanel VerticalAlignment="Top" Orientation="Vertical" Margin="0,20">
+                            <TextBlock Text="Aspect:" Margin="20,0" />
+                            <TextBox Width="200" Margin="10,0" />
+                            <TextBox Width="200" Margin="10,0" />
+                            <TextBox Width="200" Margin="10,0" />
+                            <TextBox Width="200" Margin="10,0" />
+                            <TextBox Width="200" Margin="10,0" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Orientation="Vertical" >
+                        <StackPanel VerticalAlignment="Center" Orientation="Vertical" Margin="0,20">
+                            <TextBlock Text="Ability:" Margin="20,0" />
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10">
+                                <TextBlock Text="+5:" Margin="5,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                            </StackPanel>
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10">
+                                <TextBlock Text="+4:" Margin="5,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                            </StackPanel>
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10">
+                                <TextBlock Text="+3:" Margin="5,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                            </StackPanel>
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10">
+                                <TextBlock Text="+2:" Margin="5,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                            </StackPanel>
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Margin="0,10">
+                                <TextBlock Text="+1:" Margin="5,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                                <TextBox Width="80" Margin="10,0" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <!--System - DnD 5e -->
+                <StackPanel x:Name="SystemDnD5e" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Orientation="Vertical" Visibility="Collapsed">
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Label Background="#FF8522BD" Height="80" Width="70" Margin="15,0">
+                            <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock Text="Str" VerticalAlignment="Center" Margin="10,0"/>
+                                <TextBox Width="50" />
+                            </StackPanel>
+                        </Label>
+                        <Label Background="#FF8522BD" Height="80" Width="70" Margin="15,0">
+                            <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock Text="Dex" VerticalAlignment="Center" Margin="10,0"/>
+                                <TextBox Width="50" />
+                            </StackPanel>
+                        </Label>
+                        <Label Background="#FF8522BD" Height="80" Width="70" Margin="15,0">
+                            <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock Text="Con" VerticalAlignment="Center" Margin="10,0"/>
+                                <TextBox Width="50" />
+                            </StackPanel>
+                        </Label>
+                        <Label Background="#FF8522BD" Height="80" Width="70" Margin="15,0">
+                            <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock Text="Int" VerticalAlignment="Center" Margin="10,0"/>
+                                <TextBox Width="50" />
+                            </StackPanel>
+                        </Label>
+                        <Label Background="#FF8522BD" Height="80" Width="70" Margin="15,0">
+                            <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock Text="Wis" VerticalAlignment="Center" Margin="10,0"/>
+                                <TextBox Width="50" />
+                            </StackPanel>
+                        </Label>
+                        <Label Background="#FF8522BD" Height="80" Width="70" Margin="15,0">
+                            <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock Text="Cha" VerticalAlignment="Center" Margin="10,0"/>
+                                <TextBox Width="50" />
+                            </StackPanel>
+                        </Label>
+                    </StackPanel>
+                    <StackPanel Margin="0,20" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Label Background="#FF8522BD" Height="80" Width="70" Margin="15,0">
+                            <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock Text="AC" VerticalAlignment="Center" Margin="10,0"/>
+                                <TextBox Width="50" />
+                            </StackPanel>
+                        </Label>
+                        <Label Background="#FF8522BD" Height="80" Width="70" Margin="15,0">
+                            <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock Text="Init" VerticalAlignment="Center" Margin="10,0"/>
+                                <TextBox Width="50" />
+                            </StackPanel>
+                        </Label>
+                        <Label Background="#FF8522BD" Height="80" Width="70" Margin="15,0">
+                            <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock Text="Speed" VerticalAlignment="Center" Margin="10,0"/>
+                                <TextBox Width="50" />
+                            </StackPanel>
+                        </Label>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0" Orientation="Vertical">
+                        <TextBlock Text="Features and Traits: " />
+                        <TextBox x:Name="FeatureTraits" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Height="120" Background="White"/>
+                    </StackPanel>
+                </StackPanel>
+                <!--Description-->
+                <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0" Orientation="Vertical">
+                    <TextBlock Text="Description: " />
+                    <TextBox x:Name="DesNpcText" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Height="120" Background="White"/>
+                </StackPanel>
+                <!--Sencret-->
+                <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0" Orientation="Vertical">
+                    <TextBlock Text="Secret: " />
+                    <TextBox x:Name="SecNpcText" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Height="120" Background="White"/>
+                </StackPanel>
+                <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button x:Name="AddNpcButton" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" Click="AddNpcButton_Click">
+                        <Grid Width="150">
+                            <materialDesign:PackIcon Kind="Plus" VerticalAlignment="Center"/>
+                            <TextBlock HorizontalAlignment="Center" Text="ADD" FontFamily="Cooper Black" FontSize="18"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="BackButton" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD" Click="BackButton_Click">
+                        <Grid Width="150">
+                            <materialDesign:PackIcon Kind="Undo" VerticalAlignment="Center"/>
+                            <TextBlock HorizontalAlignment="Center" Text="BACK" FontFamily="Cooper Black" FontSize="18"/>
+                        </Grid>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+        <!--MiniBar-->
+        <Grid x:Name="GridBar" Grid.ColumnSpan="2" Background="#FF8522BD" MouseDown="GridBar_MouseDown">
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0" >
+                <Button x:Name="MinimButton" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="MinimButton_Click">
+                    <materialDesign:PackIcon Kind="WindowMinimize" />
+                </Button>
+                <Button x:Name="ButtonPower" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonPower_Click">
+                    <materialDesign:PackIcon Kind="Power" />
+                </Button>
+            </StackPanel>
+        </Grid>
+        <!--ContentBar-->
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFC9C9C9" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.Effect>
+                <DropShadowEffect Color="#FFACACAC" RenderingBias="Quality" ShadowDepth="1"/>
+            </Grid.Effect>
+
+            <Grid Background="#FFA46FE4">
+                <TextBlock Text="Session Manager" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Ink Free" FontSize="25"/>
+            </Grid>
+
+            <StackPanel Grid.Row="1">
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="Road" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="SESSION" FontFamily="Cooper Black" FontSize="18"/>
+                    </Grid>
+                </Button>
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="Film" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="SCENE" FontFamily="Cooper Black" FontSize="18"/>
+                    </Grid>
+                </Button>
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="Place" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="PLACE" FontFamily="Cooper Black" FontSize="18"/>
+                    </Grid>
+                </Button>
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="Person" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="NPC" FontFamily="Cooper Black" FontSize="18"/>
+                    </Grid>
+                </Button>
+                <Button Margin="10" Background="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="Settings" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="OPTION" FontFamily="Cooper Black" FontSize="18"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
